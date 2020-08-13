@@ -8,12 +8,12 @@ app.use(morgan("combined"));
 app.use(bodyParser.json());
 app.use(cors());
 
-app.get("/status", (req, res) => {
-  res.send({
-    message: "Status page",
-  });
+app.post("/register", (req, res) => {
+    res.send({
+        message: `User was registered ${req.body.email}`,
+    });
 });
 
 app.listen(process.env.PORT || 8081, () => {
-  console.log("Server is running");
+    console.log("Server is running");
 });
